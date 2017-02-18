@@ -25,6 +25,7 @@ namespace ResumePage.Models
         [Display(Name ="Starting pay")]
         [Required]
         public decimal StartingPay { get; set; }
+        [Display(Name ="Ending Pay")]
         public decimal EndingPay { get; set; }
         
 
