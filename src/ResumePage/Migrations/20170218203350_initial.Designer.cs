@@ -8,7 +8,7 @@ using ResumePage.Data;
 namespace ResumePage.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170211204817_initial")]
+    [Migration("20170218203350_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

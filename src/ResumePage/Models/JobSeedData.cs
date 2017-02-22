@@ -27,10 +27,19 @@ namespace ResumePage.Models
                 context.Job.AddRange(
                     new Job
                     {
-                        Title = "Crew Member",
-                        JobDescription = "Make sandwhiches and coordinate orders, while holding interactions with customers.",
-                        DateJoined = DateTime.Parse("2016 - 10 - 20"),
-                        DateLeft = DateTime.Parse("2016 - 10 - 20"),
+                        Title = "JAEB Wendy's Resteraunts",
+                        JobDescription = "Crew Member",
+                        DateJoined = DateTime.Parse("2014 - 05 - 20"),
+                        DateLeft = DateTime.Parse("2016 - 12 - 20"),
+                        StartingPay = 7.55M,
+                        EndingPay = 7.55M
+                    },
+                    new Job
+                    {
+                        Title = "Little Caesers",
+                        JobDescription = "Crew Member",
+                        DateJoined = DateTime.Parse("2013 - 10 - 20"),
+                        DateLeft = DateTime.Parse("2014 - 05 - 01"),
                         StartingPay = 7.55M,
                         EndingPay = 7.55M
                     }

@@ -24,5 +24,7 @@ namespace ResumePage.Data
         }
 
         public DbSet<Job> Job { get; set; }
+
+        public DbSet<Education> Education { get; set; }
     }
 }

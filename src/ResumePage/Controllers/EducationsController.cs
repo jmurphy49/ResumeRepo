@@ -10,29 +10,22 @@ using ResumePage.Models;
 
 namespace ResumePage.Controllers
 {
-    public class JobsController : Controller
+    public class EducationsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public JobsController(ApplicationDbContext context)
+        public EducationsController(ApplicationDbContext context)
         {
             _context = context;    
         }
 
-        // GET: Jobs
-        public async Task<IActionResult> Index(string searchString)
-
+        // GET: Educations
+        public async Task<IActionResult> Index()
         {
-            var jobs = from j in _context.Job
-                       select j;
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                jobs = jobs.Where(j => j.Title.Contains(searchString));
-            }
-            return View(await jobs.ToListAsync());
+            return View(await _context.Education.ToListAsync());
         }
 
-        // GET: Jobs/Details/5
+        // GET: Educations/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -40,38 +33,38 @@ namespace ResumePage.Controllers
                 return NotFound();
             }
 
-            var job = await _context.Job.SingleOrDefaultAsync(m => m.ID == id);
-            if (job == null)
+            var education = await _context.Education.SingleOrDefaultAsync(m => m.ID == id);
+            if (education == null)
             {
                 return NotFound();
             }
 
-            return View(job);
+            return View(education);
         }
 
-        // GET: Jobs/Create
+        // GET: Educations/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Jobs/Create
+        // POST: Educations/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,DateJoined,DateLeft,EndingPay,JobDescription,StartingPay,Title")] Job job)
+        public async Task<IActionResult> Create([Bind("ID,Establishment,Graduated,Level")] Education education)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(job);
+                _context.Add(education);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(job);
+            return View(education);
         }
 
-        // GET: Jobs/Edit/5
+        // GET: Educations/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -79,22 +72,22 @@ namespace ResumePage.Controllers
                 return NotFound();
             }
 
-            var job = await _context.Job.SingleOrDefaultAsync(m => m.ID == id);
-            if (job == null)
+            var education = await _context.Education.SingleOrDefaultAsync(m => m.ID == id);
+            if (education == null)
             {
                 return NotFound();
             }
-            return View(job);
+            return View(education);
         }
 
-        // POST: Jobs/Edit/5
+        // POST: Educations/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,DateJoined,DateLeft,EndingPay,JobDescription,StartingPay,Title")] Job job)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Establishment,Graduated,Level")] Education education)
         {
-            if (id != job.ID)
+            if (id != education.ID)
             {
                 return NotFound();
             }
@@ -103,12 +96,12 @@ namespace ResumePage.Controllers
             {
                 try
                 {
-                    _context.Update(job);
+                    _context.Update(education);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!JobExists(job.ID))
+                    if (!EducationExists(education.ID))
                     {
                         return NotFound();
                     }
@@ -119,10 +112,10 @@ namespace ResumePage.Controllers
                 }
                 return RedirectToAction("Index");
             }
-            return View(job);
+            return View(education);
         }
 
-        // GET: Jobs/Delete/5
+        // GET: Educations/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -130,29 +123,29 @@ namespace ResumePage.Controllers
                 return NotFound();
             }
 
-            var job = await _context.Job.SingleOrDefaultAsync(m => m.ID == id);
-            if (job == null)
+            var education = await _context.Education.SingleOrDefaultAsync(m => m.ID == id);
+            if (education == null)
             {
                 return NotFound();
             }
 
-            return View(job);
+            return View(education);
         }
 
-        // POST: Jobs/Delete/5
+        // POST: Educations/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var job = await _context.Job.SingleOrDefaultAsync(m => m.ID == id);
-            _context.Job.Remove(job);
+            var education = await _context.Education.SingleOrDefaultAsync(m => m.ID == id);
+            _context.Education.Remove(education);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 
-        private bool JobExists(int id)
+        private bool EducationExists(int id)
         {
-            return _context.Job.Any(e => e.ID == id);
+            return _context.Education.Any(e => e.ID == id);
         }
     }
 }
