@@ -30,6 +30,7 @@ namespace ResumePage.Models
                       Graduated=DateTime.Parse("2014-05-15")
                    }
                    );
+                context.SaveChanges();
             }
         }
     }
