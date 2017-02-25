@@ -212,6 +212,38 @@ namespace ResumePage.Migrations
                     b.ToTable("Job");
                 });
 
+            modelBuilder.Entity("ResumePage.Models.People", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Adress");
+
+                    b.Property<string>("City");
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("FName");
+
+                    b.Property<int?>("JobIDID");
+
+                    b.Property<int?>("JobsID");
+
+                    b.Property<string>("LName");
+
+                    b.Property<string>("Phone");
+
+                    b.Property<string>("State");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("JobIDID");
+
+                    b.HasIndex("JobsID");
+
+                    b.ToTable("People");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole")
@@ -247,6 +279,17 @@ namespace ResumePage.Migrations
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("ResumePage.Models.People", b =>
+                {
+                    b.HasOne("ResumePage.Models.Job", "JobID")
+                        .WithMany()
+                        .HasForeignKey("JobIDID");
+
+                    b.HasOne("ResumePage.Models.Job", "Jobs")
+                        .WithMany()
+                        .HasForeignKey("JobsID");
                 });
         }
     }
