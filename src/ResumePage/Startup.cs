@@ -94,6 +94,7 @@ namespace ResumePage
             });
 
             JobSeedData.Initialize(app.ApplicationServices);
+            EducationSeedData.Initialize(app.ApplicationServices);
         }
     }
 }

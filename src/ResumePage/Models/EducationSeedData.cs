@@ -18,7 +18,7 @@ namespace ResumePage.Models
                     serviceProvider.GetRequiredService<DbContextOptions<ApplicationDbContext>>()))
             {
                 //Look for any records, if there are records do nothing
-                if (context.Job.Any())
+                if (context.Education.Any())
                 {
                     return;
                 }
