@@ -26,7 +26,6 @@ namespace ResumePage.Models
                 return LName + ", " + FName;
             }
         }
-
         public Job JobID { get; set; }
         public Job Jobs { get; set; }
     }
