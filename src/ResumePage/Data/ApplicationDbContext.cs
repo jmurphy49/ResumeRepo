@@ -17,7 +17,10 @@ namespace ResumePage.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //base.OnModelCreating(modelBuilder);
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Job>().ToTable("Jobs");
+            modelBuilder.Entity<Education>().ToTable("Educations");
+            modelBuilder.Entity<People>().ToTable("Peoples");
 
         }
 
