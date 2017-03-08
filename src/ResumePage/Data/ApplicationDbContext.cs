@@ -14,13 +14,17 @@ namespace ResumePage.Data
             : base(options)
         {
         }
+        public ApplicationDbContext()
+        {
 
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Job>().ToTable("Jobs");
             modelBuilder.Entity<Education>().ToTable("Educations");
             modelBuilder.Entity<People>().ToTable("Peoples");
+            modelBuilder.Entity<Reference>().ToTable("References");
 
         }
 
@@ -29,5 +33,6 @@ namespace ResumePage.Data
         public DbSet<Education> Education { get; set; }
 
         public DbSet<People> People { get; set; }
+        public DbSet<Reference> Reference { get; set; }
     }
 }
