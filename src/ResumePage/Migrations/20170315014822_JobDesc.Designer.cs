@@ -8,9 +8,10 @@ using ResumePage.Data;
 namespace ResumePage.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170315014822_JobDesc")]
+    partial class JobDesc
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -172,6 +173,18 @@ namespace ResumePage.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("ResumePage.Models.Description", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Summary");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Description");
+                });
+
             modelBuilder.Entity("ResumePage.Models.Education", b =>
                 {
                     b.Property<int>("ID")
@@ -197,19 +210,25 @@ namespace ResumePage.Migrations
 
                     b.Property<DateTime>("DateLeft");
 
+                    b.Property<int>("DescriptionID");
+
                     b.Property<decimal>("EndingPay");
 
                     b.Property<string>("JobDescription")
                         .IsRequired();
 
-                    b.Property<decimal>("StartingPay");
+                    b.Property<int>("JobID");
 
-                    b.Property<string>("Summary");
+                    b.Property<decimal>("StartingPay");
 
                     b.Property<string>("Title")
                         .IsRequired();
 
                     b.HasKey("ID");
+
+                    b.HasIndex("DescriptionID");
+
+                    b.HasIndex("JobID");
 
                     b.ToTable("Jobs");
                 });
@@ -280,6 +299,19 @@ namespace ResumePage.Migrations
                     b.HasOne("ResumePage.Models.ApplicationUser")
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("ResumePage.Models.Job", b =>
+                {
+                    b.HasOne("ResumePage.Models.Description", "Description")
+                        .WithMany()
+                        .HasForeignKey("DescriptionID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("ResumePage.Models.Job", "Job")
+                        .WithMany()
+                        .HasForeignKey("JobID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

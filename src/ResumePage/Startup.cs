@@ -90,7 +90,7 @@ namespace ResumePage
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Jobs}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
 
             JobSeedData.Initialize(app.ApplicationServices);
