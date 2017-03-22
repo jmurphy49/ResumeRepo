@@ -10,8 +10,5 @@ namespace ResumePage.Models
     {
         [Required]
         public string Relation { get; set; }
-        [Required]
-        [Display(Name ="Known For")]
-        public string knownFor { get; set; }
     }
 }

@@ -1,15 +1,14 @@
-@model IEnumerable<ResumePage.Models.People>
+@model IEnumerable<ResumePage.Models.Reference>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h2>Contact</h2>
-<div class="pull-right">
-    <p>
-        <a class="btn btn-default" asp-action="Create">Create New</a>
-    </p>
-</div>
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
 <table class="table">
     <thead>
         <tr>
@@ -20,20 +19,24 @@
                 @Html.DisplayNameFor(model => model.LName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Phone)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Adress)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.City)
             </th>
-
             <th>
                 @Html.DisplayNameFor(model => model.State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Relation)
             </th>
             <th></th>
         </tr>
@@ -49,12 +52,6 @@
                     @Html.DisplayFor(modelItem => item.LName)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Phone)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.Adress)
                 </td>
                 <td>
@@ -64,6 +61,17 @@
                     @Html.DisplayFor(modelItem => item.State)
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Relation)
+                </td>
+                <td>
                     <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
                     <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
@@ -71,6 +79,4 @@
             </tr>
         }
     </tbody>
-
 </table>
-

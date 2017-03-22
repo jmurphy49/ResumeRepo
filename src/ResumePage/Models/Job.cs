@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ResumePage.Models
 {
-    public class Job
+    public class Job : Description
     {
         public int ID { get; set; }
         [Display(Name ="Job Description")]
