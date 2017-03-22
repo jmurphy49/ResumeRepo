@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ResumePage.Models
 {
-    public class Description
+    public class Description : JobDescriptions
     {
         public int ID { get; set; }
         [DataType(DataType.MultilineText), StringLength(2000)]

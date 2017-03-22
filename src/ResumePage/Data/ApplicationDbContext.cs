@@ -21,6 +21,7 @@ namespace ResumePage.Data
             modelBuilder.Entity<Job>().ToTable("Jobs");
             modelBuilder.Entity<Education>().ToTable("Educations");
             modelBuilder.Entity<People>().ToTable("Peoples");
+            modelBuilder.Entity<Reference>().ToTable("Reference");
 
         }
 
@@ -29,6 +30,7 @@ namespace ResumePage.Data
         public DbSet<Education> Education { get; set; }
 
         public DbSet<People> People { get; set; }
+        public DbSet<Reference> Reference { get; set; }
 
     }
 }
