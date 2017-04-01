@@ -8,9 +8,10 @@ using ResumePage.Data;
 namespace ResumePage.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170321235815_NewMig")]
+    partial class NewMig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -172,28 +173,6 @@ namespace ResumePage.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("ResumePage.Models.Description", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int?>("DescriptionID");
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired();
-
-                    b.Property<string>("Summary")
-                        .HasAnnotation("MaxLength", 2000);
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("DescriptionID");
-
-                    b.ToTable("Description");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Description");
-                });
-
             modelBuilder.Entity("ResumePage.Models.Education", b =>
                 {
                     b.Property<int>("ID")
@@ -208,6 +187,33 @@ namespace ResumePage.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Educations");
+                });
+
+            modelBuilder.Entity("ResumePage.Models.Job", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("DateJoined");
+
+                    b.Property<DateTime>("DateLeft");
+
+                    b.Property<decimal>("EndingPay");
+
+                    b.Property<string>("JobDescription")
+                        .IsRequired();
+
+                    b.Property<decimal>("StartingPay");
+
+                    b.Property<string>("Summary")
+                        .HasAnnotation("MaxLength", 2000);
+
+                    b.Property<string>("Title")
+                        .IsRequired();
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Jobs");
                 });
 
             modelBuilder.Entity("ResumePage.Models.People", b =>
@@ -245,29 +251,6 @@ namespace ResumePage.Migrations
                     b.ToTable("Peoples");
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("People");
-                });
-
-            modelBuilder.Entity("ResumePage.Models.Job", b =>
-                {
-                    b.HasBaseType("ResumePage.Models.Description");
-
-                    b.Property<DateTime>("DateJoined");
-
-                    b.Property<DateTime>("DateLeft");
-
-                    b.Property<decimal>("EndingPay");
-
-                    b.Property<string>("JobDescription")
-                        .IsRequired();
-
-                    b.Property<decimal>("StartingPay");
-
-                    b.Property<string>("Title")
-                        .IsRequired();
-
-                    b.ToTable("Jobs");
-
-                    b.HasDiscriminator().HasValue("Job");
                 });
 
             modelBuilder.Entity("ResumePage.Models.Reference", b =>
@@ -317,13 +300,6 @@ namespace ResumePage.Migrations
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("ResumePage.Models.Description", b =>
-                {
-                    b.HasOne("ResumePage.Models.Description", "Description")
-                        .WithMany()
-                        .HasForeignKey("DescriptionID");
                 });
 
             modelBuilder.Entity("ResumePage.Models.People", b =>

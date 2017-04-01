@@ -1,7 +1,6 @@
-﻿@*@{
+﻿@{
     ViewData["Title"] = "Resume Site";
-}*@
-@model IEnumerable<ResumePage.Models.People>
+}
 
 <div class="jumbotron">
     <h1>
@@ -11,40 +10,64 @@
     </h1>
 
 </div>
-<div class="row">
-    <div class="page-header text-center">
-        <h3>
-            Jacob Murphy,
-        </h3>
 
-    </div>
-    <div class="col-md-3">  </div>
-    <div class="col-md-6">
-        <p>
-            <strong>
-                is a college level student in the process of learning .Net.
-                While the website itself is part of the DeepDive .Net program's regular course material,
-                he has put extra effort in to ensure the website looks professional on a visual level.
-                The website itself is an expo of the skills that were learned during the course,
-                as well as previous knowledge.
-                @Html.DisplayFor(model => )
-            </strong>
-        </p>
-    </div>
-    <div class="col-md-3">  </div>
-</div>
-<div class="row">
+@*<div class="row">
     <button class="btn btn-default col-sm-2 pull-right" data-toggle="collapse" data-target="#Message">Learn More  <i class="glyphicon glyphicon-circle-arrow-down"></i> </button>
 
     @*<div class="btn-group-vertical col-lg-4 pull-right">
             <a class="btn btn-default" href="">Place</a>
             <a class="btn btn-default" href="">Holder</a>
         </div>*@
-</div>
+@*</div>
 <div class="row">
     <div id="Message" class="collapse col-md-4 well pull-right bg-warning">
         <strong>
             This website will display my current resume info, in a style that is easy to access. The code itself will be easy to update and maintain to keep the info up to date.
         </strong>
     </div>
+</div>*@
+<div class="row text-center">
+    <div class="well col-sm-3">
+        <a asp-controller="Home" asp-action="About" class="text-success">
+            <img src="~/images/User.png" />
+            <h4>
+                <b>
+                    About
+                </b>
+            </h4>
+        </a>
+    </div>
+    <div class="well col-sm-3">
+        <a asp-controller="People" asp-action="Index" class="text-success">
+            <img src="~/images/Contact.png" />
+            <h4>
+                <b>
+                    Contact
+                </b>
+            </h4>
+        </a>
+    </div>
+    <div class="well col-sm-3">
+        <a asp-controller="Educations" asp-action="Index" class="text-success">
+            <img src="~/images/Education.png" />
+            <h4>
+                <b>
+                    Education
+                </b>
+            </h4>
+        </a>
+    </div>
+    <div class="well col-sm-3">
+        <a asp-controller="Jobs" asp-action="Index" class="text-success">
+            <img src="~/images/resolution-05-128.png" />
+            <h4>
+                <b>
+                    Previous Jobs
+                </b>
+            </h4>
+        </a>
+    </div>
+</div>
+<div class="row text-center">
+
 </div>
