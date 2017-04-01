@@ -1,6 +1,7 @@
-﻿@{
+﻿@*@{
     ViewData["Title"] = "Resume Site";
-}
+}*@
+@model IEnumerable<ResumePage.Models.People>
 
 <div class="jumbotron">
     <h1>
@@ -26,6 +27,7 @@
                 he has put extra effort in to ensure the website looks professional on a visual level.
                 The website itself is an expo of the skills that were learned during the course,
                 as well as previous knowledge.
+                @Html.DisplayFor(model => )
             </strong>
         </p>
     </div>

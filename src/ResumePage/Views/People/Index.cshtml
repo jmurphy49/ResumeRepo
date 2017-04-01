@@ -13,10 +13,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.FName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LName)
+                @Html.DisplayNameFor(model => model.FullName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Email)
@@ -42,10 +39,7 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.FName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LName)
+                    @Html.DisplayFor(modelItem => item.FullName)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Email)
