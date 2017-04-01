@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace ResumePage.Models
 {
-    public class Job : Description
+    public class Job 
     {
         public int ID { get; set; }
         [Display(Name ="Job Description")]
@@ -27,8 +28,10 @@ namespace ResumePage.Models
         public decimal StartingPay { get; set; }
         [Display(Name ="Ending Pay")]
         public decimal EndingPay { get; set; }
-        
 
+        public int PeopleId { get; set; }
+        [ForeignKey("PeopleId")]
+        public virtual People Person { get; set; }
 
     }
 }
