@@ -21,8 +21,7 @@ namespace ResumePage.Controllers
 
         // GET: People
         public async Task<IActionResult> Index()
-        {
-            var peopleContext =_context.People.Include(j => j.Jobs);
+        {            
             return View(await _context.People.ToListAsync());
         }
 
@@ -35,6 +34,7 @@ namespace ResumePage.Controllers
             }
 
             var people = await _context.People.SingleOrDefaultAsync(m => m.ID == id);
+                
             if (people == null)
             {
                 return NotFound();

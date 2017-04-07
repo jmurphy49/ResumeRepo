@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,5 +13,8 @@ namespace ResumePage.Models
         public string Establishment { get; set; }
         public DateTime Graduated { get; set; }
 
+        public int? PeopleId { get; set; }
+        [ForeignKey("PeopleId")]
+        public virtual People Person { get; set; }
     }
 }

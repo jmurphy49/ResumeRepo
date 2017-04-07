@@ -15,5 +15,6 @@ namespace ResumePage.Models
         public int Id { get; set; }
         public People Contact { get; set; }
         public IEnumerable<Job> Jobs { get; set; }
+        public IEnumerable<Education> Educations { get; set; }
     }
 }

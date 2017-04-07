@@ -29,7 +29,7 @@ namespace ResumePage.Models
         [Display(Name ="Ending Pay")]
         public decimal EndingPay { get; set; }
 
-        public int PeopleId { get; set; }
+        public int? PeopleId { get; set; }
         [ForeignKey("PeopleId")]
         public virtual People Person { get; set; }
 

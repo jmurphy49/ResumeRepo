@@ -8,9 +8,10 @@ using ResumePage.Data;
 namespace ResumePage.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170407015442_NullIDFix")]
+    partial class NullIDFix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -183,7 +184,7 @@ namespace ResumePage.Migrations
 
                     b.Property<string>("Level");
 
-                    b.Property<int?>("PeopleId");
+                    b.Property<int>("PeopleId");
 
                     b.HasKey("ID");
 
@@ -302,7 +303,8 @@ namespace ResumePage.Migrations
                 {
                     b.HasOne("ResumePage.Models.People", "Person")
                         .WithMany()
-                        .HasForeignKey("PeopleId");
+                        .HasForeignKey("PeopleId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ResumePage.Models.Job", b =>

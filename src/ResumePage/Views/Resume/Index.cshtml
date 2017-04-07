@@ -1,0 +1,28 @@
+﻿@model ResumePage.Models.ResumeViewModel
+
+@{
+    ViewData["Title"] = "Resumes";
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact.FullName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            <tr>
+                <td>
+                    <b>Murphy, Jacob</b>
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="1">Details</a> 
+                </td>
+            </tr>
+        
+    </tbody>
+
+</table>

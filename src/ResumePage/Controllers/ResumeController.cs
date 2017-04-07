@@ -2,22 +2,38 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using ResumePage.Data;
+using ResumePage.Models;
+using Microsoft.AspNetCore.Http;
+
 namespace ResumePage.Controllers
 {
     public class ResumeController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+        public ResumeController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         // GET: Resume
-        public ActionResult Index()
+        public async Task<IActionResult> Index()
         {
             return View();
         }
 
         // GET: Resume/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int id)
         {
-            return View();
+            var resume = new ResumeViewModel();
+            resume.Contact = await _context.People.FirstOrDefaultAsync(p => p.ID == id);
+            resume.Educations = await _context.Education.Where(e => e.ID == id).ToListAsync();
+            resume.Jobs = await _context.Job.Where(j => j.ID == id).ToListAsync();
+            return View(resume);
         }
 
         // GET: Resume/Create
