@@ -14,6 +14,7 @@ namespace ResumePage.Models
         [Display(Name = "Last Name")]
         public string LName { get; set; }
         public string Phone { get; set; }
+        [EmailAddress(ErrorMessage = "Invalid E-Mail Adress.")]
         public string Email { get; set; }
         public string Adress { get; set; }
         public string City { get; set; }

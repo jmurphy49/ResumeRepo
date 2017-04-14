@@ -31,17 +31,13 @@
             @Html.DisplayNameFor(model => model.Contact.Email)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Contact.Email)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Contact.Adress)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Contact.Adress)
+            @*<a href="mailto:jacobtmurphy@yahoo.com" target="_top">*@               
+                @Html.DisplayFor(model => model.Contact.Email)
+            @*</a>*@
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Contact.City)
-        </dt>
+        </dt> 
         <dd>
             @Html.DisplayFor(model => model.Contact.City)
         </dd>
@@ -50,17 +46,20 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Contact.State)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Jobs)
-        </dt>        
+        </dd>    
     </dl>
 </div>
 <table class="table">
     <thead>
         <tr>
             <th>
-                Educations
+                @Html.DisplayNameFor(modelItem =>Model.Educations)
+            </th>
+            <th>
+                Graduated
+            </th>
+            <th>
+                Education Level
             </th>
         </tr>
     </thead>
@@ -69,7 +68,13 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => Model.Educations)
+                    @Html.DisplayFor(modelItem => item.Establishment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dateTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Level)
                 </td>
             </tr>
         }
@@ -79,7 +84,10 @@
     <thead>
         <tr>
             <th>
-                Jobs
+                @Html.DisplayNameFor(modelItem => Model.Jobs)
+            </th>
+            <th>
+                Position
             </th>
         </tr>
     </thead>
@@ -88,7 +96,10 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => Model.Jobs)
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JobDescription)
                 </td>
             </tr>
         }

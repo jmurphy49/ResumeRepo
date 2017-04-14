@@ -31,8 +31,8 @@ namespace ResumePage.Controllers
         {
             var resume = new ResumeViewModel();
             resume.Contact = await _context.People.FirstOrDefaultAsync(p => p.ID == id);
-            resume.Educations = await _context.Education.Where(e => e.ID == id).ToListAsync();
-            resume.Jobs = await _context.Job.Where(j => j.ID == id).ToListAsync();
+            resume.Educations = await _context.Education.Where(e => e.PeopleId == id).ToListAsync();
+            resume.Jobs = await _context.Job.Where(j => j.PeopleId == id).ToListAsync();
             return View(resume);
         }
 

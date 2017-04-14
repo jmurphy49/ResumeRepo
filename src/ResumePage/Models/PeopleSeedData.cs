@@ -28,8 +28,8 @@ namespace ResumePage.Models
                        FName = "Jacob",
                        LName = "Murphy",
                        Phone = "505-485-9551",
-                       Email = "email@email.com",
-                       Adress = "Adress",
+                       Email = "JacobTMurphy@yahoo.com",
+                       Adress = "1824 San Pedro Rd",
                        City = "Rio Rancho",
                        State = "New Mexico"
                    }
