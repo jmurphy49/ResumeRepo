@@ -32,7 +32,8 @@ namespace ResumePage.Models
                         DateJoined = DateTime.Parse("2014 - 05 - 20"),
                         DateLeft = DateTime.Parse("2016 - 12 - 20"),
                         StartingPay = 7.55M,
-                        EndingPay = 7.55M
+                        EndingPay = 7.55M,
+                        PeopleId = 1,
                     },
                     new Job
                     {
@@ -41,7 +42,8 @@ namespace ResumePage.Models
                         DateJoined = DateTime.Parse("2013 - 10 - 20"),
                         DateLeft = DateTime.Parse("2014 - 05 - 01"),
                         StartingPay = 7.55M,
-                        EndingPay = 7.55M
+                        EndingPay = 7.55M,
+                        PeopleId = 1,
                     }
                    );
                 context.SaveChanges();

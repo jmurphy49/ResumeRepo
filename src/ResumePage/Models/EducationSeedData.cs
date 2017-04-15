@@ -27,7 +27,8 @@ namespace ResumePage.Models
                    {
                       Establishment="V. Sue Cleveland",
                       Level="Highschool",
-                      Graduated=DateTime.Parse("2014-05-15")
+                      Graduated=DateTime.Parse("2014-05-15"),
+                      PeopleId = 1
                    }
                    );
                 context.SaveChanges();
