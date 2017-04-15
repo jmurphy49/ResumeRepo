@@ -1,4 +1,5 @@
-﻿@{
+﻿@model ResumePage.Models.People
+@{
     ViewData["Title"] = "Resume Site";
 }
 
@@ -70,23 +71,51 @@
 </div>
 <div class="row">
     <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-        <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
-        <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
+        <li class="active"><a data-toggle="tab" href="#home">About</a></li>
+        <li><a data-toggle="tab" href="#menu1">Contact</a></li>
+        <li><a data-toggle="tab" href="#menu2">Github</a></li>
     </ul>
 
     <div class="tab-content">
         <div id="home" class="tab-pane fade in active">
-            <h3>HOME</h3>
-            <p>Some content.</p>
+            <h3>About-</h3>
+            <p>
+                <strong>
+                    I am a college level student in the process of learning .Net.
+                    While the website itself is part of the DeepDive .Net program's regular course material,
+                    he has put extra effort in to ensure the website looks professional on a visual level.
+                    The website itself is an expo of the skills that were learned during the course,
+                    as well as previous knowledge.
+                </strong>
+            </p>
         </div>
         <div id="menu1" class="tab-pane fade">
-            <h3>Menu 1</h3>
-            <p>Some content in menu 1.</p>
+            <h3>Contact me-</h3>
+            <dl class="dl-horizontal">
+                <dd>
+                    Name:
+                </dd>
+                <dt>
+                    Murphy, Jacob
+                </dt>
+                <dd>
+                    Email:
+                </dd>
+                <dt>
+                    JacobTMurphy@yahoo.com
+                </dt>
+                <dd>
+                    Phone Number:
+                </dd>
+                <dt>
+                    "505-485-9551"
+                </dt>
+            </dl>
         </div>
         <div id="menu2" class="tab-pane fade">
-            <h3>Menu 2</h3>
-            <p>Some content in menu 2.</p>
+            <h3>My Git-</h3>
+            <p>This is the <a href="https://github.com/jmurphy49">GitHub</a> account that I used throughout the c# boot camp to store all my work. 
+            All of the demos that we did are located <a href="https://github.com/jmurphy49">here.</a></p>
         </div>
     </div>
 </div>
